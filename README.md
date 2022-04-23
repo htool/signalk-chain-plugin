@@ -1,2 +1,3 @@
-# signalk-chain-plugin
-Show chain length and depth in 1 screen. Intended for mobile near anchor.
+# Dislay chain length and depth
+
+Aimed to be used on phone near windlass to read chain length and depth.

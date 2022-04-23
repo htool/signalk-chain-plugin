@@ -1,0 +1,64 @@
+@font-face {
+  font-family: Handset;
+  font-style: normal;
+  font-weight: 300;
+  src: url(HandsetCond.ttf);
+}
+
+body {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: black;
+  color: white;
+  font-family: Handset;
+  font-size: 20vw;
+  margin-left: 2px;
+  margin-right: 2px;
+  overflow-anchor: none;
+}
+
+#row {
+  text-align: right;
+}
+#depth {
+  font-size: 40vw;
+  display:inline-block;
+}
+
+#chain {
+  font-size: 40vw;
+  display:inline-block;
+}
+
+#lock {
+  font-size: 10vw;
+  text-align: center;
+}
+
+input {
+  border-radius: 4px;
+  font-color: black;
+  font-size: 5vw;
+  text-align: center;
+}
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: black;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+

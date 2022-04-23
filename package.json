@@ -1,0 +1,20 @@
+{
+  "description": "Chain and depth display",
+  "keywords": [
+    "signalk-node-server-plugin",
+    "signalk-webapp"
+  ],
+  "license": "ISC",
+  "author": "hans@defect.org",
+  "main": "plugin/index.js",
+  "name": "signalk-chain-plugin",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htool/signalk-chain-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/htool/signalk-chain-plugin/issues"
+  },
+  "homepage": "https://github.com/htool/signalk-chain-plugin#readme"
+}
