@@ -20,5 +20,13 @@
   "signalk": {
     "appIcon": "icon.png",
     "displayName": "Chain and Depth"
+  },
+  "files": [
+    "plugin",
+    "public",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node scripts/test-npm-publish-check.js"
   }
 }
