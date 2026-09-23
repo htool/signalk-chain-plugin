@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/htool/signalk-chain-plugin/issues"
   },
-  "homepage": "https://github.com/htool/signalk-chain-plugin#readme"
+  "homepage": "https://github.com/htool/signalk-chain-plugin#readme",
+  "signalk": {
+    "appIcon": "icon.png",
+    "displayName": "Chain and Depth"
+  }
 }

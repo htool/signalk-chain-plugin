@@ -10,6 +10,10 @@ module.exports = function(app, options) {
   plugin.description = "Signal K webapp that displays chain length and depth. Intended for mobile phone near anchor."
 
   var unsubscribes = []
+  var currentOptions = {
+    chain: "winches.windlass.rode",
+    depth: "environment.depth.belowkeel"
+  }
 
   var schema = {
     type: "object",
@@ -27,35 +31,53 @@ module.exports = function(app, options) {
         default: "environment.depth.belowkeel"
       }
     }
-  } 
+  }
 
   plugin.schema = function() {
     return schema
   }
 
+  function optionsPayload () {
+    return {
+      chain: (currentOptions && currentOptions.chain) || schema.properties.chain.default,
+      depth: (currentOptions && currentOptions.depth) || schema.properties.depth.default
+    }
+  }
+
+  function sendOptions (res) {
+    res.contentType("application/json")
+    res.send(JSON.stringify(optionsPayload()))
+  }
+
+  plugin.registerWithRouter = function(router) {
+    app.debug("registerWithRouter")
+    router.get("/options", function(req, res) {
+      sendOptions(res)
+    })
+  }
+
+  plugin.signalKApiRoutes = function(router) {
+    router.get("/signalk-chain-plugin/options", function(req, res) {
+      sendOptions(res)
+    })
+    return router
+  }
+
   plugin.start = function(options, restartPlugin) {
     app.debug('starting plugin')
     app.debug("Options: " + JSON.stringify(options))
+    currentOptions = options || currentOptions
     let localSubscription = {
       context: '*', // Get data for all contexts
       subscribe: [
         {
-          path: options.chain,
+          path: currentOptions.chain,
         },
         {
-          path: options.depth,
+          path: currentOptions.depth,
         }
       ]
     };
-    
-    plugin.registerWithRouter = function(router) {
-	  // Will appear here; plugins/signalk-chain-plugin/
-	    app.debug("registerWithRouter")
-	    router.get("/options", (req, res) => {
-	      res.contentType("application/json")
-	      res.send(JSON.stringify(options))
-	    })
-	  }
   }
 
   plugin.stop = function() {
